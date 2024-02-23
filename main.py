@@ -7,24 +7,22 @@ from selenium.webdriver.common.action_chains import ActionChains
 import random
 import time
 
-global username
-global password
-
 def random_delay():
     delay = random.uniform(1, 3)  # Random delay between 1 and 3 seconds
     time.sleep(delay)
 
-
-with open(r"login-id.txt", 'r') as usernameid:    
+with open(r"login-id.txt", 'r') as usernameid:      
     id=usernameid.readlines()
     randomness=random.randint(0,len(id))
-    for i in range(randomness):
-        username=id[i]
+    for i in range(randomness):  
+        #global username
+        username=id[i]        
 
-with open(r"password.txt", 'r') as password:    
-    passw=password.readlines()
-    for i in range(len(passw)):
-        password=passw[i]
+with open(r"password.txt", 'r') as password1:        
+    passw=password1.readlines()
+    for j in range(len(passw)):
+        #global password
+        password=passw[j]        
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--ignore-certificate-errors')
@@ -56,5 +54,3 @@ time.sleep(3)
 
 # Closes the browser window
 driver.quit()
-usernameid.close()
-password.close()
