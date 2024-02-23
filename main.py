@@ -8,7 +8,7 @@ import random
 import time
 
 def random_delay():
-    delay = random.uniform(1, 3)  # Random delay between 1 and 3 seconds
+    delay = random.uniform(1, 2)  # Random delay between 1 and 2 seconds
     time.sleep(delay)
 
 with open(r"login-id.txt", 'r') as usernameid:      
